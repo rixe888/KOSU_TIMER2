@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <!-- style 
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  -->
+
+    <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body >
+  <ons-splitter>
+    <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+      <ons-page>
+        <ons-list>
+          <ons-list-item onclick="fn.load('Home.html');" tappable>
+            Home
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('Setting.html');" tappable>
+            Settings
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('About.html')" tappable>
+            About
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content id="content" page="Home.html"></ons-splitter-content>
+  </ons-splitter>
+
+<ng-include src="'About.html'"></ng-include>
+
+<ons-template id="A1.html">
+  <ons-page>
+    test
+  </ons-page>    
+</ons-template>
+
+<!--
+  <ons-template id="home.html">
+    <ons-page>
+      <div class="left">
+        <ons-toolbar-button id="Home-Menu" class="Menu-On-Idle" onclick="fn.open()">
+          <ons-icon icon="ion-navicon, material:md-menu" size="10vw" id="menu-icon"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <audio id="Alarm-Sound" preload="auto">
+        <source src="mp3/Alarm01.mp3" type="audio/mp3">
+ </audio>
+      <p>
+        
+      <ons-select class="select" id="sel-pro">
+        <select class="select-input" id="sel-pro2">
+        </select>
+      </ons-select>
+      
+      </p>
+      <p style="text-align: center; opacity: 0.6; ">
+        <div class="list-inline" id="Main-Project">
+        </div>
+        <form class="list-inline" id="Main-Text">
+          <input type='text' id='TOTAL_TIME'>分の会議
+        </form>
+        <br />		
+        <p id="TIMER"><br /></p>
+        <div class="list-inline" id="Main-Button">
+          <form id='RadiusButton' >
+            <a type='submit' id='btn_srt' class='sgl_btn' onclick='StartTimer()'>START</a>
+          </form>
+        </div>
+      </p>
+
+      <script>
+        (window.onload = function() {
+          //HomeInit();
+          Display_TimerIdle();
+          alert("ddd");
+        })();
+      </script>
+    </ons-page>
+  </ons-template>
+-->
+
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+    <script src="js/Display.js"></script>
+  <script src="js/Project.js"></script>
+
+  <script src="js/script.js"></script>
+
+
+    <script>
+
+    ons.ready(function() {
+      ReadProjectsFromStorage();
+      DispPageNow = 0;
+      Status=TIMER_IDLE;
+    });
+
+    window.fn = {};
+    window.fn.open = function() {
+      var menu = document.getElementById('menu');
+      menu.open();
+    };
+
+    window.fn.load = function(page) {
+      var content = document.getElementById('content');
+      var menu = document.getElementById('menu');
+      var file = window.location.href.split('/').pop()
+      var PageNo;
+
+      if(page=="Home.html"){
+        PageNo = 0;
+      } else if(page=="Setting.html"){
+        PageNo = 1;
+      } else if(page=="About.html"){
+        PageNo = 2;
+      }
+      
+      console.log(page);
+      console.log(PageNo);
+      console.log(DispPageNow);
+      
+
+      if(DispPageNow != PageNo){
+      content
+        .load(page)
+        .then(menu.close.bind(menu));    
+      } else{
+        menu.close();   
+      }
+    };
+  </script>
+</body>
+
+
+
+
+
+
+</html>

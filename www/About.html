@@ -1,0 +1,47 @@
+
+<ons-navigator animation="slide" var="app.navi">
+  <ons-page>
+    
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="ion-navicon, material:md-menu" size="10vw" id="menu-icon"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        About
+      </div>
+    </ons-toolbar>
+    <p>
+      <ons-list>
+        <ons-list-title>
+        </ons-list-title>
+        <ons-list-item onclick="fn.load('A1.html')"tappable>
+          アプリの使い方
+        </ons-list-item>
+        <ons-list-item modifier="light" ng-click="nav.pushPage('A1.html')" tappable>
+          ローカルストレージの削除
+        </ons-list-item>
+        <ons-list-item onclick="fn.load('About-App')" tappable>
+          このアプリについて
+        </ons-list-item>
+        <ons-list-item onclick="fn.load('About.html')" tappable>
+          問い合わせ
+        </ons-list-item>
+      </ons-list>
+    </p>
+  <script>
+    ons.ready(function() {
+      DispPageNow = 2;
+    });
+
+    function test(){
+      alert("hey");
+    }
+  </script>
+  </ons-page>
+</ons-navigator>
+
+
+
+

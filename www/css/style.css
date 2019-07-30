@@ -1,0 +1,204 @@
+/**/
+.fadeout {
+  animation : fadeOut 1s;
+  animation-fill-mode: both;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.loading {
+width: 100%;
+height: 100%;
+background: rgba(255,255,255,1.0);
+position: fixed;
+top: 0;
+left: 0;
+z-index: 20000;
+}
+.loading img {
+width: 30vw;
+height: 30vw;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-top: -10vh;
+margin-left: -15vw;
+}
+
+ons-page {
+  background-color: white;
+}
+
+ons-toolbar {
+  background-color: rgb(80, 241, 16);
+} 
+
+#menu-icon {
+  margin-left: 2vw;
+}
+
+#menu {
+  width: 5vw;
+}
+
+.Menu-On-Idle {
+  visibility: visible;
+}
+
+.Menu-On-Exe {
+  visibility: hidden;
+}
+
+input {
+  width: 20vw;
+  background: #fff;
+  border:none;
+  border-bottom: 1px solid rgb(255, 119, 85);
+  border-radius: 0%;
+  font-size: 1em;
+  text-indent: 0.7em;
+}
+
+#sel-pro {
+  color: #fff;
+  text-align: left;
+  margin-top: 5vh;
+  margin-left: 7%;
+  padding: 2%;
+  border-radius: 20%;
+  background-color: orange;
+  font-weight: bold;
+}
+
+#Main-Project {
+  text-align: center;
+  font-size: 13vw;
+  position: relative;
+  top: -10vh;
+}
+
+#Main-Text {
+  text-align: center;
+  font-size: 13vw;
+  position: relative;
+  top: 10vh;
+}
+
+#Main-Button {
+  text-align: center;
+}
+
+#ApplyButton {
+  text-align: right;
+  margin-right: 10vw;
+  margin-bottom: 3vh;
+}
+
+#ApplyButton a {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  border-radius: 20%;
+}
+
+#btn_apl {
+  background-color:rgb(0, 132, 255);
+}
+
+.sqr_btn {
+  font-size: 7vw;
+  width: 30vw;
+  height: 15vw;
+  line-height: 15vw;
+}
+
+.list-inline form {
+  position: relative;
+  top: 10vh;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+#RadiusButton a {
+  color: #fff;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+    position: relative;
+  top: 0vh;
+}
+
+#btn_srt {
+  background-color:rgb(0, 132, 255);
+}
+
+#btn_end {
+  background-color:rgb(183, 0, 255);
+}
+
+#btn_stp {
+  background-color:rgb(255, 51, 0);
+}
+
+#btn_rst {
+  background-color: rgb(255, 51, 0);
+}
+
+.dbl_btn {
+  font-size: 8vw;
+  width: 30vw;
+  height: 30vw;
+  line-height: 30vw;
+}
+
+.sgl_btn {
+  font-size: 14vw;
+  width: 50vw;
+  height: 50vw;
+  line-height: 50vw;
+
+}
+
+#Project-List {
+  font-size: 7vw;
+}
+
+#Project {
+  border-top:  solid 0.1vh #cfcbcb;
+}
+
+#Pro-Name {
+  width: 0%;
+  text-align: center;
+  font-size: 100%;
+  background-color: orange;
+  margin-right: 3vw;
+}
+
+#Setting {
+}
+
+#KOSU_YEN {
+  text-align: center;
+}
+
+#AddProject {
+  text-align: center;
+  font-size: 10vw;
+  opacity: 0.5;
+  padding-top: 3vh;
+}
+
+#plus-icon {
+  line-height: -100vh;
+}

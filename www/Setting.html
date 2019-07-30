@@ -1,0 +1,44 @@
+
+
+<ons-page>
+  <ons-toolbar>
+    <div class="left">
+      <ons-toolbar-button onclick="fn.open()">
+        <ons-icon icon="ion-navicon, material:md-menu" size="10vw" id="menu-icon"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+    <div class="center">
+      Settings
+    </div>
+  </ons-toolbar>
+  <p style="text-align: center; opacity: 0.6;">
+
+      <form id='ApplyButton' >
+        <a type='submit' id='btn_apl' class='sqr_btn' onclick='ApplyProjectAll()'>APPLY</a>
+      </form>
+    <ons-list id="Project-List">
+      <!-- ライン表示がおかしくなるため、1番目のみここに記載 -->
+        <ons-row>
+          <ons-col id="Pro-Name" width="20%">
+            <h1>1</h1>
+          </ons-col>
+          <ons-col>
+            <form class="list-inline" id="Setting">
+              1人当たりの工数
+            </form>
+            <input type="number" pattern="\d*" id="KOSU_YEN1" value="" >円/時間<br />
+          </ons-col>
+        </ons-row>
+    </ons-list>
+      <div id='AddProject' >
+        <a type='submit' onclick='AddProject()'><ons-icon icon="ion-plus-circled" size="10vw" fixed-width="true" id="plus-icon"></ons-icon>Add Project</a>
+      </div>
+  </p>
+  <script>
+    ons.ready(function() {
+      DispPageNow = 1;
+      Display_Setting();
+    });
+  </script>
+
+</ons-page>

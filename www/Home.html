@@ -1,0 +1,59 @@
+
+    <ons-page>
+      <ng-include src="'Home.html'"></ng-include>
+      <div class="left">
+        <ons-toolbar-button id="Home-Menu" class="Menu-On-Idle" onclick="fn.open()">
+          <ons-icon icon="ion-navicon, material:md-menu" size="10vw" id="menu-icon"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <audio id="Alarm-Sound" preload="auto">
+        <source src="mp3/Alarm01.mp3" type="audio/mp3">
+ <!--       <source src="mp3/Alarm01.ogg" type="audio/ogg">
+        <source src="mp3/Alarm01.wav" type="audio/wav">
+        <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
+--> </audio>
+<!--
+        <div class="loading" id="Loading">
+          <img src="img/loading.gif" />
+        </div>
+        -->
+      <ons-select class="select" id="sel-pro">
+        <select class="select-input" id="sel-pro2" onChange="ChangePull()"></select>
+      </ons-select>
+      <p style="text-align: center; opacity: 0.6; ">
+        <div class="list-inline" id="Main-Project">
+        </div>
+        <form class="list-inline" id="Main-Text">
+          <!--<input type='text' id='TOTAL_TIME'>分の会議-->
+        </form>
+        <p id="TIMER"><br /></p>
+        <div class="list-inline" id="Main-Button">
+          <form id='RadiusButton' >
+            <!--<a type='submit' id='btn_srt' class='sgl_btn' onclick='StartTimer()'>START</a>-->
+          </form>
+        </div>
+      </p>
+
+      <script>
+/*
+        $(window).load(function(){
+          //$('.loading').fadeOut();	
+          HomeInit();
+          alert("a");
+        });
+        */
+    ons.ready(function() {
+          DispPageNow = 0;
+          //ReadProjectPullMenu();
+          HomeInit();
+/*
+                    var text = document.getElementById("Loading");
+
+            text.classList.add('fadeout');
+            setTimeout(function(){ 
+              text.style.display = "none"; 
+            }, 0);*/
+    });
+
+      </script>
+    </ons-page>
