@@ -19,6 +19,7 @@ var Kosu = 0;             // 1分ごとの工数
 
 var CountTime = 0;        // 経過時間
 var NowKosu = 0;          // 現在の工数
+var DispNowKosu = 0;      // 表示する工数
 var Status = TIMER_IDLE;
 
 var StartTime, NowTime;
@@ -53,11 +54,14 @@ function StartTimer(){
   console.log(SelectProject);
   // 入力情報の取得
   Time = document.getElementById("TOTAL_TIME").value;
-  Kosu = GetKosu(SelectProject) / 60;
+  Kosu = ((GetKosu(SelectProject) / 20) / 8) / 60;     // 稼働日：20日/月　稼働時間：8時間/日　で計算
   
   // 数値（半角）以外エラー
   if((isNaN(Time) || !Time) || (isNaN(Kosu) || !Kosu)){
-    alert("数値(半角)を入力してください");
+    ons.notification.alert({
+      title: "ERROR",
+      messageHTML: "数値(半角)を入力してください"
+    });
     return;
   }
   
@@ -104,6 +108,7 @@ function CountKosu(){
     // 工数計測
     CountTime += 1;
     NowKosu = elapsedMnt * Kosu;
+    DispNowKosu = Math.floor(NowKosu * 100) / 100
 
     // アプリを閉じているときに
     if(Time < elapsedMnt){
@@ -119,7 +124,10 @@ function CountKosu(){
     if(elapsedMsc >= Time ) {
       NowKosu = (Time / MINUTE) * Kosu;
       Ring_AS();
-      alert("会議終了時間です");
+      ons.notification.alert({
+        title: "",
+        messageHTML: "会議終了時間です"
+      });
       Stop_AS();
       CountEnd();
     }
@@ -212,7 +220,7 @@ function InitLocalStrage(){
     callback: function(index) {
       if(index){
         localStorage.clear();
-        ReadProjectsKosu();
+        ReadProjectsCost();
         ons.notification.alert({
           title: "",
           messageHTML: "ローカルストレージを初期化しました。"

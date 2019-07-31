@@ -1,5 +1,5 @@
 // This is a JavaScript file
-const KOSU_INIT_VALUE = 3000;
+const KOSU_INIT_VALUE = 100000;
 const PRO_KEY = ["PRO1_KEY",
                   "PRO2_KEY",
                   "PRO3_KEY",
@@ -17,6 +17,7 @@ var Pro_yen = [];
 
 var ProjectCnt;
 var NowProject = 1;
+
 
 
 /*************************************
@@ -106,11 +107,11 @@ function ReadProjectsFromStorage(){
 
 
 /*************************************
- * プロジェクトの工数を読み出し。
+ * プロジェクトの単価を読み出し。
  * ローカルストレージが空の場合は初期値（KOSU_INIT_VALUE）が設定される。
  * アプリの起動時、またはローカルストレージの初期化時に実行される。
  *************************************/
-function ReadProjectsKosu(){
+function ReadProjectsCost(){
   var yen;
   for (var i=0; i < PROJECT_CNT;i++){
     yen = window.localStorage.getItem(PRO_KEY[i]);

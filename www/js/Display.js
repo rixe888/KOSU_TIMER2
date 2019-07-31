@@ -63,7 +63,7 @@ function Display_TimerExe(){
   TimerArea = document.getElementById("Main-Text");
   ButtonArea = document.getElementById("Main-Button");
 
-  TimerArea.innerHTML = NowKosu + "円分経過...";
+  TimerArea.innerHTML = DispNowKosu + "円分経過...";
   ButtonArea.innerHTML = "<form id='RadiusButton' >"
           +"<a type='submit' id='btn_stp' class='dbl_btn' onclick='CountStop()'>STOP</a>"
           +"</form>"
@@ -83,7 +83,7 @@ function Display_TimerStop(){
   ButtonArea = document.getElementById("Main-Button");
 
   TimerArea.innerHTML = "会議を中断しています。"
-          +NowKosu + "円分経過しています。";
+          + DispNowKosu + "円分経過しています。";
   ButtonArea.innerHTML = "<form id='RadiusButton' >"
           +"<a type='submit' id='btn_srt' class='dbl_btn' onclick='TimerContinue()'>START</a>"
           +"</form>"
@@ -102,9 +102,8 @@ function Display_TimerEnd(){
   ButtonArea = document.getElementById("Main-Button");
   ResArea = document.getElementById("Main-Project");
 
-  ResArea.innerHTML = "お疲れ様です。<br />" +  NowKosu +"円分の会議はできましたか？";
+  ResArea.innerHTML = "お疲れ様です。<br />" + DispNowKosu +"円分の会議はできましたか？";
   TimerArea.innerHTML = "";
-  //TimerArea.innerHTML =  NowKosu +"円分の会議はできましたか？"
   ButtonArea.innerHTML = "<form id='RadiusButton' >"
         +"<a type='submit' id='btn_rst' class='sgl_btn' onclick='TimerReset()'>RESET</a>"
         +"</form>";

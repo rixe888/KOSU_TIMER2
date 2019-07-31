@@ -67,7 +67,7 @@ input {
 
 #Project-List input {
   width: 40vw;
-  text-indent: 3.3em;
+  text-align: right;
 }
 
 #sel-pro {
@@ -247,8 +247,14 @@ input {
   line-height: -100vh;
 }
 
+ons-input {
+  width: 80vw;
+}
+
 textarea {
   box-shadow: none;
   background-color: #fff;
   border-radius: 0px;
+  height: 30vh;
+  width: 90%;
 }

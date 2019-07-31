@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget xmlns="http://www.w3.org/ns/widgets" id="com.example.helloworld" version="1.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" id="com.example.helloworld" version="0.0.1">
   <name>Minimum Template</name>
   <description>Made with Monaca (http://monaca.mobi)</description>
   <author/>
@@ -56,9 +56,18 @@
     <splash src="/res/ios/screen/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
     <icon src="/res/ios/icon/icon-1024.png" width="1024" height="1024"/>
     <preference name="orientation" value="portrait"/>
+    <custom-config-file parent="UISupportedInterfaceOrientations" target="*-Info.plist" mode="replace">
+      <array>
+        <string>UIInterfaceOrientationPortrait</string>
+      </array>
+    </custom-config-file>
+    <custom-config-file parent="UISupportedInterfaceOrientations~ipad" target="*-Info.plist" mode="replace">
+      <array>
+        <string>UIInterfaceOrientationPortrait</string>
+      </array>
+    </custom-config-file>
     <config-file platform="ios" parent="CFBundleLocalizations" target="*-Info.plist">
       <array>
-        <string>en</string>
         <string>ja</string>
       </array>
     </config-file>
@@ -90,18 +99,28 @@
   <preference name="monaca:MonacaBackendUrl" value="https://cloud.monaca.mobi/json-rpc/"/>
   <preference name="monaca:MonacaBackendId" value="5b55f154e78885441f317992"/>
   <preference name="monaca:MonacaBackendApiKey" value="a872c1a589f1460bb6007edbf4014fbcf7370fa316536d9df70c17b14d1d837b"/>
+  <preference name="KeepRunning" value="true"/>
+  <preference name="monaca:AndroidIsPackageNameSeparate" value="false"/>
+  <preference name="Orientation" value="portrait"/>
+  <custom-config-file parent="UISupportedInterfaceOrientations" target="*-Info.plist" mode="replace">
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+    </array>
+  </custom-config-file>
+  <custom-config-file parent="UISupportedInterfaceOrientations~ipad" target="*-Info.plist" mode="replace">
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+    </array>
+  </custom-config-file>
+  <preference name="SplashScreenDelay" value="1000"/>
+  <preference name="Fullscreen" value="false"/>
   <preference name="ios-XCBuildConfiguration-TARGETED_DEVICE_FAMILY" value="1,2"/>
   <preference name="AutoHideSplashScreen" value="true"/>
   <preference name="FadeSplashScreen" value="true"/>
   <preference name="ShowSplashScreenSpinner" value="true"/>
-  <preference name="EnableViewportScale" value="true"/>
   <access origin="*"/>
-  <preference name="KeepRunning" value="true"/>
-  <preference name="monaca:AndroidIsPackageNameSeparate" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
-  <preference name="Orientation" value="portrait"/>
-  <preference name="SplashScreenDelay" value="1000"/>
-  <preference name="Fullscreen" value="false"/>
+  <preference name="EnableViewportScale" value="true"/>
   <preference name="WindowsStorePublisherName" value="My Name"/>
   <preference name="WindowsStoreIdentityName" value="a75cbfa8-5d18-49d9-bfc6-b878c5fa63ba"/>
 </widget>
