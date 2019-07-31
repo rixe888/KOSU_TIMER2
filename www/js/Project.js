@@ -1,5 +1,4 @@
 // This is a JavaScript file
-const PROJECT_MAX = 10;
 const KOSU_INIT_VALUE = 3000;
 const PRO_KEY = ["PRO1_KEY",
                   "PRO2_KEY",
@@ -11,9 +10,10 @@ const PRO_KEY = ["PRO1_KEY",
                   "PRO8_KEY",
                   "PRO9_KEY",
                   "PRO10_KEY"];
-const PROJECT_CNT_KEY = "PRO_CNT_KEY";
+//const PROJECT_CNT_KEY = "PRO_CNT_KEY";
+const PROJECT_CNT = 10;
 
-var pro_yen = [];
+var Pro_yen = [];
 
 var ProjectCnt;
 var NowProject = 1;
@@ -28,11 +28,11 @@ var NowProject = 1;
 function GetKosu(pro){
   var Ret = window.localStorage.getItem(pro);
 
-  if(pro == PRO_KEY[0]){
+  //if(pro == PRO_KEY[0]){
     if(!Ret){
       window.localStorage.setItem(pro, String(KOSU_INIT_VALUE));
     }
-  }
+  //}
 
   return Ret;
 }
@@ -45,13 +45,13 @@ function ApplyProjectAll(){
   var val;
 
   // 各プロジェクトの工数円/時間/人
-  for(var i=0; i<ProjectCnt; i++){
+  for(var i=0; i<PROJECT_CNT; i++){
     val = document.getElementById("KOSU_YEN"+(i+1)).value;
     window.localStorage.setItem(PRO_KEY[i], String(val));
   }
 
   // プロジェクト数の保存
-  window.localStorage.setItem(PROJECT_CNT_KEY, String(ProjectCnt));
+  //window.localStorage.setItem(PROJECT_CNT_KEY, String(ProjectCnt));
 
   // 適応されたことを示すメッセージ
   ons.notification.toast('OK! There were adapted.', { timeout: 400, animation: 'fall'});
@@ -61,6 +61,7 @@ function ApplyProjectAll(){
  * Add Projectボタン実行
  * プロジェクト欄の追加
  *************************************/
+ /* 2019/07/30 Add Projectボタン廃止
 function AddProject(){
   var pro = document.getElementById("Project-List");
   var yen = 0;
@@ -85,11 +86,13 @@ function AddProject(){
   yen = window.localStorage.getItem(PRO_KEY[0]);
   document.getElementById("KOSU_YEN1").value = yen;
 }
+*/
 
 /*************************************
  * プロジェクト数の読み出し。
  * アプリの起動時に実行される。
  *************************************/
+ /* 2017/07/30 プロジェクト数固定のため廃止
 function ReadProjectsFromStorage(){
   var pc;
   if(!window.localStorage.getItem(PROJECT_CNT_KEY)){
@@ -99,6 +102,30 @@ function ReadProjectsFromStorage(){
   pc = window.localStorage.getItem(PROJECT_CNT_KEY);
   ProjectCnt = Number(pc);
 }
+*/
+
+
+/*************************************
+ * プロジェクトの工数を読み出し。
+ * ローカルストレージが空の場合は初期値（KOSU_INIT_VALUE）が設定される。
+ * アプリの起動時、またはローカルストレージの初期化時に実行される。
+ *************************************/
+function ReadProjectsKosu(){
+  var yen;
+  for (var i=0; i < PROJECT_CNT;i++){
+    yen = window.localStorage.getItem(PRO_KEY[i]);
+
+    if(!yen){
+      window.localStorage.setItem(PRO_KEY[i], String(KOSU_INIT_VALUE));
+      yen = window.localStorage.getItem(PRO_KEY[i]);
+      console.log(i);
+      console.log(yen);
+    }
+  }
+}
+
+
+
 
 /*************************************
  * Setting.html 画面の初期化関数。
@@ -110,20 +137,20 @@ function Display_Setting(){
   var area = document.getElementById("Project-List");
   var yen;
   
-  for(var i=1; i<ProjectCnt;i++){
-    if(document.getElementsByTagName("li").length < ProjectCnt){
+  for(var i=1; i < PROJECT_CNT;i++){
+    if(document.getElementsByTagName("li").length < PROJECT_CNT){
       yen = window.localStorage.getItem(PRO_KEY[i]);
 
-
-      area.innerHTML += "<p id='Project'>"
-          +"<form class='list-inline' id='Setting'>"
-          +"1人当たりの工数"
-          +"</form>"
-          +"<input type=’number' pattern='\d*' "
-          +"id='KOSU_YEN"+(i+1)+"' "
-          +"value='"+yen+"'>"
-          +"円/時間<br />"
-          +"</p>";
+      area.innerHTML += "<ons-row id='Project'><ons-col class='Pro-Name' id='pro"+(i+1)+
+            "' width='20%' ><h1>"+(i+1)+"</h1></ons-col><ons-col>"
+            +"<form class='list-inline' id='Setting'>"
+            +"人月単価"
+            +"</form>"
+            +"<input type=’number' pattern='\d*' "
+            +"id='KOSU_YEN"+(i+1)+"' "
+            +"value='"+yen+"'>"
+            +"円<br />"
+            +"</ons-col></ons-row>";
     }
   }
   
@@ -132,13 +159,16 @@ function Display_Setting(){
   document.getElementById("KOSU_YEN1").value = yen;
 }
 
+
+
+
 function ReadProjectPullMenu(){
   var i, InProj;
 
   ProjArea = document.getElementById("sel-pro2");
   InProj = ProjArea.childElementCount;
 
-  for(i=InProj; i<ProjectCnt; i++){
+  for(i=InProj; i<PROJECT_CNT; i++){
    ProjArea.innerHTML += "<option value='"+PRO_KEY[i]+"'>Project "+(i+1)+"</option>";
    
   }

@@ -16,31 +16,40 @@
       <ons-list>
         <ons-list-title>
         </ons-list-title>
-        <ons-list-item onclick="fn.load('A1.html')"tappable>
+        <ons-list-item onclick="fn.load('HowToUseThisApp.html')"tappable>
           アプリの使い方
         </ons-list-item>
-        <ons-list-item modifier="light" ng-click="nav.pushPage('A1.html')" tappable>
-          ローカルストレージの削除
+        <ons-list-item modifier="light" onclick="InitLocalStrage()" tappable>
+          ローカルストレージの初期化
         </ons-list-item>
-        <ons-list-item onclick="fn.load('About-App')" tappable>
+        <ons-list-item onclick="AboutThisApp()" tappable>
           このアプリについて
         </ons-list-item>
-        <ons-list-item onclick="fn.load('About.html')" tappable>
+        <ons-list-item onclick="fn.load('SendMail.html')" tappable>
           問い合わせ
         </ons-list-item>
       </ons-list>
     </p>
-  <script>
-    ons.ready(function() {
-      DispPageNow = 2;
-    });
+<ons-dialog id="dialog-1">
+  This is a dialog!
+</ons-dialog>
+    <script>
+      ons.ready(function() {
+        DispPageNow = 2;
+      });
 
-    function test(){
-      alert("hey");
-    }
-  </script>
+
+    </script>
   </ons-page>
 </ons-navigator>
+
+<!--
+<ons-template id="A1.html">
+  <ons-page>
+    test
+  </ons-page>    
+</ons-template>
+-->
 
 
 

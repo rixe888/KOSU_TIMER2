@@ -40,12 +40,6 @@
 
 <ng-include src="'About.html'"></ng-include>
 
-<ons-template id="A1.html">
-  <ons-page>
-    test
-  </ons-page>    
-</ons-template>
-
 <!--
   <ons-template id="home.html">
     <ons-page>
@@ -91,18 +85,20 @@
   </ons-template>
 -->
 
+
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
-    <script src="js/Display.js"></script>
+  <script src="js/Info.js"></script>
+  <script src="js/Display.js"></script>
   <script src="js/Project.js"></script>
 
   <script src="js/script.js"></script>
 
-
     <script>
 
     ons.ready(function() {
-      ReadProjectsFromStorage();
+      //ReadProjectsFromStorage();
+      ReadProjectsKosu();
       DispPageNow = 0;
       Status=TIMER_IDLE;
     });

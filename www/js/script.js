@@ -201,3 +201,35 @@ function Ring_AS(){
 function Stop_AS(){
   document.getElementById("Alarm-Sound").pause();
 }
+
+/*************************************
+ * ローカルストレージの初期化
+ * ************************************/
+function InitLocalStrage(){
+  ons.notification.confirm({
+    title: "ローカルストレージを初期化してよろしいですか？",
+    messageHTML: "※すべてのプロジェクトの1人あたりの工数は"+KOSU_INIT_VALUE+"円/時間になります。",
+    callback: function(index) {
+      if(index){
+        localStorage.clear();
+        ReadProjectsKosu();
+        ons.notification.alert({
+          title: "",
+          messageHTML: "ローカルストレージを初期化しました。"
+        });
+      }      
+    }
+  });
+}
+
+
+/*************************************
+ * このアプリについて
+ * ************************************/
+function AboutThisApp(){
+  ons.notification.alert({
+    title: "About This App",
+    messageHTML: VERSION
+  });
+}
+

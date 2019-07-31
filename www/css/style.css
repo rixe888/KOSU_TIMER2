@@ -65,6 +65,11 @@ input {
   text-indent: 0.7em;
 }
 
+#Project-List input {
+  width: 40vw;
+  text-indent: 3.3em;
+}
+
 #sel-pro {
   color: #fff;
   text-align: left;
@@ -177,12 +182,51 @@ input {
   border-top:  solid 0.1vh #cfcbcb;
 }
 
-#Pro-Name {
+.Pro-Name {
   width: 0%;
   text-align: center;
   font-size: 100%;
-  background-color: orange;
   margin-right: 3vw;
+}
+
+.Pro-Name, #pro1 {
+  background-color: orange;
+}
+
+.Pro-Name, #pro2 {
+  background-color: gold;
+}
+
+.Pro-Name, #pro3 {
+  background-color: greenyellow;
+}
+
+.Pro-Name, #pro4 {
+  background-color: lime;
+}
+
+.Pro-Name, #pro5 {
+  background-color: aquamarine;
+}
+
+.Pro-Name, #pro6 {
+  background-color: royalblue;
+}
+
+.Pro-Name, #pro7 {
+  background-color: mediumslateblue;
+}
+
+.Pro-Name, #pro8 {
+  background-color: magenta;
+}
+
+.Pro-Name, #pro9 {
+  background-color: hotpink;
+}
+
+.Pro-Name, #pro10 {
+  background-color: tomato;
 }
 
 #Setting {
@@ -201,4 +245,10 @@ input {
 
 #plus-icon {
   line-height: -100vh;
+}
+
+textarea {
+  box-shadow: none;
+  background-color: #fff;
+  border-radius: 0px;
 }

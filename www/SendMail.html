@@ -1,0 +1,36 @@
+
+<ons-navigator animation="slide" var="app.navi">
+  <ons-page>
+    
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="ion-navicon, material:md-menu" size="10vw" id="menu-icon"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        問い合わせ
+      </div>
+    </ons-toolbar>
+    <p>
+      <div align="center">
+        <ons-input id="Title" modifier="underbar" placeholder="Title"></ons-input><br>
+        <ons-input id="MailAddress" modifier="underbar" placeholder="Mail-Address"></ons-input><br><br>
+        <textarea class="textarea" rows="3" placeholder="不具合・レポートなどありましたらここに記載してください"></textarea><br>
+        <br><br>
+        <ons-button id="SendMail" onclick="onSaveButtonClick()">送信</ons-button>
+
+      </div>
+
+    </p>
+  <script>
+    ons.ready(function() {
+      DispPageNow = 3;
+    });
+  </script>
+  </ons-page>
+</ons-navigator>
+
+
+
+

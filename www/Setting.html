@@ -19,20 +19,22 @@
     <ons-list id="Project-List">
       <!-- ライン表示がおかしくなるため、1番目のみここに記載 -->
         <ons-row>
-          <ons-col id="Pro-Name" width="20%">
+          <ons-col class="Pro-Name" id="pro1" width="20%">
             <h1>1</h1>
           </ons-col>
           <ons-col>
             <form class="list-inline" id="Setting">
-              1人当たりの工数
+              人月単価
             </form>
-            <input type="number" pattern="\d*" id="KOSU_YEN1" value="" >円/時間<br />
+            <input type="number" pattern="\d*" id="KOSU_YEN1" value="" >円<br />
           </ons-col>
         </ons-row>
     </ons-list>
+    <!--
       <div id='AddProject' >
         <a type='submit' onclick='AddProject()'><ons-icon icon="ion-plus-circled" size="10vw" fixed-width="true" id="plus-icon"></ons-icon>Add Project</a>
       </div>
+    -->
   </p>
   <script>
     ons.ready(function() {
